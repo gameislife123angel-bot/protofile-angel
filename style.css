@@ -916,3 +916,47 @@ h1 span {
 
 }
 
+/* ABOUT CARD IMAGE */
+
+.about-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.about-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
+}
+
+/* Review headings */
+
+.review-image-card h3 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+/* Faster rendering */
+
+.hero-typing {
+  min-height: 28px;
+}
+
+/* Mobile */
+
+@media (max-width: 640px) {
+  .about-card-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about-icon {
+    width: 70px;
+    height: 70px;
+  }
+}
