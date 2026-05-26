@@ -58,7 +58,38 @@ if (typingRoleEl) {
   type();
 }
 
-// ── 3D tilt on cards ──
+// ── Lightbox ──
+const lightbox     = document.getElementById("lightbox");
+const lightboxImg  = document.getElementById("lightbox-img");
+const lightboxClose = document.getElementById("lightbox-close");
+
+document.querySelectorAll(".project-image-wrap").forEach((wrap) => {
+  wrap.addEventListener("click", () => {
+    const img = wrap.querySelector(".project-img");
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+  });
+});
+
+function closeLightbox() {
+  lightbox.classList.remove("active");
+  lightboxImg.src = "";
+  document.body.style.overflow = "";
+}
+
+lightboxClose.addEventListener("click", closeLightbox);
+
+// Close on backdrop click
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+
+// Close on Escape key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeLightbox();
+});
 const cards = document.querySelectorAll(
   ".card, .skill-card, .service-card, .project-card, .review-image-card, .testimonial-card"
 );
